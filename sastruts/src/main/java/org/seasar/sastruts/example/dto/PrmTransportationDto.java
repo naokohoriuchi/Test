@@ -1,12 +1,20 @@
 package org.seasar.sastruts.example.dto;
 
+import java.io.Serializable;
 import java.util.List;
+
+import org.seasar.framework.container.annotation.tiger.Component;
+import org.seasar.framework.container.annotation.tiger.InstanceType;
+
 /**
  * パラメータDTO
  *
  * @author Naoko Horiuchi
  */
-public class PrmTransportationDto {
+@Component(instance = InstanceType.SESSION)
+public class PrmTransportationDto implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	/** 日付（申請日） */
 	public String writeDate;
@@ -37,5 +45,8 @@ public class PrmTransportationDto {
 
 	/** 備考欄 */
 	public List<String> remarksList;
+
+	/** 合計金額 */
+	public String total;
 
 }

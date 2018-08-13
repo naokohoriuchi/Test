@@ -14,6 +14,13 @@ import org.seasar.sastruts.example.dto.PrmTransportationDto;
  */
 public class TransportationService {
 
+	// 前回登録データ取得用SQLのパス
+	private final String GET_TRANSPORTATION_DATA = "org/seasar/sastruts/example/service/getTransportationData.sql";
+
+	//交通費情報登録用SQLのパス
+	private final String SET_TRANSPORTATION_DATA = "org/seasar/sastruts/example/service/setTransportationData.sql";
+
+	// DI
 	@Resource
 	protected JdbcManager jdbcManager;
 
@@ -23,9 +30,7 @@ public class TransportationService {
 	 * @return
 	 */
 	public GetTransportationDto doGetTransportationData() {
-		GetTransportationDto getTransportationDto = new GetTransportationDto();
-		jdbcManager.selectBySqlFile(GetTransportationDto.class, "").getSingleResult();
-		return getTransportationDto;
+		return jdbcManager.selectBySqlFile(GetTransportationDto.class, GET_TRANSPORTATION_DATA).getSingleResult();
 	}
 
 	/**

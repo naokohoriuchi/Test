@@ -1,5 +1,13 @@
 package org.seasar.sastruts.example.action;
 
+import javax.annotation.Resource;
+
+import org.seasar.framework.beans.util.Beans;
+import org.seasar.sastruts.example.dto.DspTransportationDto;
+import org.seasar.sastruts.example.dto.PrmTransportationDto;
+import org.seasar.sastruts.example.form.TransportationForm;
+import org.seasar.sastruts.example.service.TransportationService;
+import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
 
 /**
@@ -10,15 +18,26 @@ import org.seasar.struts.annotation.Execute;
  */
 public class TransportationAction {
 
-//	@Resource
-//	protected TransportationService transportationService;
+	/*
+	 * DI
+	 */
+	// 交通費情報取得・登録用サービス
+	@Resource
+	protected TransportationService transportationService;
 
-//	@Resource
-//	@ActionForm
-//	protected TransportationForm transportationForm;
-//
-//	@Resource
-//	protected PrmTransportationDto prmTransportationDto;
+	// 入力フォーム
+	@Resource
+	@ActionForm
+	protected TransportationForm transportationForm;
+
+	// パラメータDTO
+	@Resource
+	protected PrmTransportationDto prmTransportationDto;
+
+	/*
+	 * 表示用DTO
+	 */
+	public DspTransportationDto dspTransportationDto;
 
 	/**
 	 * 初期表示
@@ -27,7 +46,8 @@ public class TransportationAction {
 	 */
 	@Execute(validator = false)
 	public String index() {
-		//GetTransportationDto getDto = transportationServecice.doGetTransportationData();
+		// GetTransportationDto getDto =
+		// transportationService.doGetTransportationData();
 		return "index.jsp";
 	}
 
@@ -38,7 +58,8 @@ public class TransportationAction {
 	 */
 	@Execute(validator = false)
 	public String confirm() {
-//		prmTransportationDto = Beans.createAndCopy(PrmTransportationDto.class, transportationForm).execute();
+		prmTransportationDto = Beans.createAndCopy(PrmTransportationDto.class, transportationForm).execute();
+		dspTransportationDto = Beans.createAndCopy(DspTransportationDto.class, prmTransportationDto).execute();
 		return "confirm.jsp";
 	}
 
@@ -49,7 +70,7 @@ public class TransportationAction {
 	 */
 	@Execute(validator = false)
 	public String complete() {
-//		transportationServecice.setTransportaionData(prmTransportationDto);
+		transportationService.setTransportaionData(prmTransportationDto);
 		return "complete.jsp";
 	}
 

@@ -11,98 +11,112 @@
 </head>
 
 <body>
-	<table border=1>
-		<tr>
-			<td>
-				<table id=date>
-					<tr>
-						<th>日付</th>
-						<td>2018/07/31</td>
-					</tr>
-				</table>
-			</td>
-			<td>
-				<p>凡例 A：電車 B：タクシー C：バス</p>
-			</td>
-			<td>
-				<table>
-					<tr>
-						<th>部署</th>
-						<td class="Department">企画開発部</td>
-					</tr>
-					<tr>
-						<th>名前</th>
-						<td class="Department">小川</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3"><br />
-				<table class="main">
-					<tr>
-						<th width="12.5%">日付</th>
-						<th width="12.5%">行き先</th>
-						<th width="12.5%">乗車別</th>
-						<th width="12.5%">出発地</th>
-						<th width="12.5%">-</th>
-						<th width="12.5%">目的地</th>
-						<th width="12.5%">金額</th>
-						<th width="12.5%">備考</th>
-					</tr>
-					<tr>
-						<td class=mainTd>2018/7/13</td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-					<tr>
-					<tr>
-						<td class=mainTd>2018/7/13</td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-					<tr>
-					<tr>
-						<td class=mainTd>2018/7/17</td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-						<td class=mainTd></td>
-					<tr>
-				</table> <br /></td>
-		</tr>
-		<tr>
-			<td colspan="3" align="right">
-				<table>
-					<tr>
-						<th width="100px">電車</th>
-						<td class="moneyTd"></td>
-					</tr>
-					<tr>
-						<th>タクシー</th>
-						<td class="moneyTd"></td>
-					</tr>
-					<tr>
-						<th>バス</th>
-						<td class="moneyTd"></td>
-					</tr>
-				</table>
-				<p>合計</p> <s:link href="/transportation/confirm">
-					<img src="\sastruts\image\confirmBtn.png" />
-				</s:link>
-			</td>
-		</tr>
-	</table>
+	<s:form method="POST">
+		<table border=1>
+			<tr>
+				<td>
+					<table id=date>
+						<tr>
+							<th>日付</th>
+							<td><input type="text" name="writeDate"></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<p>凡例 A：電車 B：タクシー C：バス</p>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<th>部署</th>
+							<td class="Department"><select name="department">
+									<option value="firstDepartment">システム開発部1課</option>
+									<option value="secondDepartment">システム開発部2課</option>
+									<option value="planningDepartment">企画開発部</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th>名前</th>
+							<td class="Department"><input type="text" name="name"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3"><br />
+					<table class="main">
+						<tr>
+							<th width="12.5%">日付</th>
+							<th width="12.5%">行き先</th>
+							<th width="12.5%">乗車別</th>
+							<th width="12.5%">出発地</th>
+							<th width="12.5%">-</th>
+							<th width="12.5%">目的地</th>
+							<th width="12.5%">金額</th>
+							<th width="12.5%">備考</th>
+						</tr>
+						<tr>
+							<td class=mainTd><input type="text" name="boardingDateList"></td>
+							<td class=mainTd><input type="text" name="destinationList"></td>
+							<td class=mainTd><select name="typeList">
+									<option value="a">A</option>
+									<option value="b">B</option>
+									<option value="c">C</option>
+							</select></td>
+							<td class=mainTd><input type="text" name="departureList"></td>
+							<td class=mainTd><select>
+									<option value="go">→</option>
+									<option value="back">←</option>
+									<option value="roundTrip">⇔</option>
+							</select></td>
+							<td class=mainTd><input type="text" name="destinationStationList"></td>
+							<td class=mainTd><input type="text" name="moneyList"></td>
+							<td class=mainTd><input type="text" name="remarksList"></td>
+						<tr>
+						<tr>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+						<tr>
+						<tr>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+						<tr>
+					</table> <br /></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="right">
+					<table>
+						<tr>
+							<th width="100px">電車</th>
+							<td class="moneyTd"><input type="text" name=""></td>
+						</tr>
+						<tr>
+							<th>タクシー</th>
+							<td class="moneyTd"><input type="text" name=""></td>
+						</tr>
+						<tr>
+							<th>バス</th>
+							<td class="moneyTd"><input type="text" name=""></td>
+						</tr>
+					</table>
+					<p>合計：<input type="text" name="total"></p>
+					<br />
+					<html:image src="/sastruts/image/confirmBtn.png" property="confirm" value="確認" />
+				</td>
+			</tr>
+		</table>
+	</s:form>
 </body>
 </html>

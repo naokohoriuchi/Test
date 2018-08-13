@@ -23,13 +23,13 @@ th {
 
 .main {
 	text-align: center;
-	width: 600px;
 	border: 1px solid;
 	border-collapse: collapse;
 	empty-cells: show;
 }
 
-.mainTd, .moneyTd{
+.mainTd, .moneyTd {
 	border: 1px solid;
 	border-collapse: collapse;
+	height:25px
 }

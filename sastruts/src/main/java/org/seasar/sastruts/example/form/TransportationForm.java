@@ -39,4 +39,7 @@ public class TransportationForm {
 	/** 備考欄 */
 	public List<String> remarksList;
 
+	/** 合計金額 */
+	public String total;
+
 }
