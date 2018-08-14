@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<s:form method="POST">
+	<s:form>
 		<table border=1>
 			<tr>
 				<td>
@@ -30,9 +30,9 @@
 						<tr>
 							<th>部署</th>
 							<td class="Department"><select name="department">
-									<option value="firstDepartment">システム開発部1課</option>
-									<option value="secondDepartment">システム開発部2課</option>
-									<option value="planningDepartment">企画開発部</option>
+									<option value="システム開発部1課">システム開発部1課</option>
+									<option value="システム開発部2課">システム開発部2課</option>
+									<option value="企画開発部">企画開発部</option>
 							</select></td>
 						</tr>
 						<tr>
@@ -59,15 +59,15 @@
 							<td class=mainTd><input type="text" name="boardingDateList"></td>
 							<td class=mainTd><input type="text" name="destinationList"></td>
 							<td class=mainTd><select name="typeList">
-									<option value="a">A</option>
-									<option value="b">B</option>
-									<option value="c">C</option>
+									<option value="A">A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
 							</select></td>
 							<td class=mainTd><input type="text" name="departureList"></td>
-							<td class=mainTd><select>
-									<option value="go">→</option>
-									<option value="back">←</option>
-									<option value="roundTrip">⇔</option>
+							<td class=mainTd><select name="arrowList">
+									<option value="→">→</option>
+									<option value="←">←</option>
+									<option value="⇔">⇔</option>
 							</select></td>
 							<td class=mainTd><input type="text" name="destinationStationList"></td>
 							<td class=mainTd><input type="text" name="moneyList"></td>

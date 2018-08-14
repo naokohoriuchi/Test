@@ -17,7 +17,7 @@ public class TransportationService {
 	// 前回登録データ取得用SQLのパス
 	private final String GET_TRANSPORTATION_DATA = "org/seasar/sastruts/example/service/getTransportationData.sql";
 
-	//交通費情報登録用SQLのパス
+	// 交通費情報登録用SQLのパス
 	private final String SET_TRANSPORTATION_DATA = "org/seasar/sastruts/example/service/setTransportationData.sql";
 
 	// DI
@@ -37,7 +37,7 @@ public class TransportationService {
 	 * 交通費の情報を登録する。
 	 */
 	public void setTransportaionData(PrmTransportationDto prmTransportationDto) {
-
+		jdbcManager.updateBySqlFile(SET_TRANSPORTATION_DATA, prmTransportationDto);
 	}
 
 }

@@ -37,6 +37,9 @@ public class PrmTransportationDto implements Serializable {
 	/** 出発地 */
 	public List<String> departureList;
 
+	/** 矢印 */
+	public List<String> arrowList;
+
 	/** 目的地 */
 	public List<String> destinationStationList;
 

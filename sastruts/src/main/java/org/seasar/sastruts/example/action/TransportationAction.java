@@ -1,6 +1,7 @@
 package org.seasar.sastruts.example.action;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.seasar.framework.beans.util.Beans;
 import org.seasar.sastruts.example.dto.DspTransportationDto;
@@ -34,6 +35,9 @@ public class TransportationAction {
 	@Resource
 	protected PrmTransportationDto prmTransportationDto;
 
+	@Resource
+	protected HttpSession session;
+
 	/*
 	 * 表示用DTO
 	 */
@@ -60,6 +64,7 @@ public class TransportationAction {
 	public String confirm() {
 		prmTransportationDto = Beans.createAndCopy(PrmTransportationDto.class, transportationForm).execute();
 		dspTransportationDto = Beans.createAndCopy(DspTransportationDto.class, prmTransportationDto).execute();
+		session.setAttribute("session", prmTransportationDto);
 		return "confirm.jsp";
 	}
 
@@ -70,6 +75,7 @@ public class TransportationAction {
 	 */
 	@Execute(validator = false)
 	public String complete() {
+		prmTransportationDto = (PrmTransportationDto)session.getAttribute("session");
 		transportationService.setTransportaionData(prmTransportationDto);
 		return "complete.jsp";
 	}
