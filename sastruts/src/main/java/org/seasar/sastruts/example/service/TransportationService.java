@@ -14,11 +14,14 @@ import org.seasar.sastruts.example.dto.PrmTransportationDto;
  */
 public class TransportationService {
 
+	// SQLファイルのルートパス
+	private final String SQL_FILE_ROOT_PATH = "org/seasar/sastruts/example/service/";
+
 	// 前回登録データ取得用SQLのパス
-	private final String GET_TRANSPORTATION_DATA = "org/seasar/sastruts/example/service/getTransportationData.sql";
+	private final String GET_TRANSPORTATION_DATA = SQL_FILE_ROOT_PATH + "getTransportationData.sql";
 
 	// 交通費情報登録用SQLのパス
-	private final String SET_TRANSPORTATION_DATA = "org/seasar/sastruts/example/service/setTransportationData.sql";
+	private final String SET_TRANSPORTATION_DATA = SQL_FILE_ROOT_PATH + "setTransportationData.sql";
 
 	// DI
 	@Resource

@@ -31,10 +31,6 @@ public class TransportationAction {
 	@ActionForm
 	protected TransportationForm transportationForm;
 
-	// パラメータDTO
-	@Resource
-	protected PrmTransportationDto prmTransportationDto;
-
 	@Resource
 	protected HttpSession session;
 
@@ -62,7 +58,7 @@ public class TransportationAction {
 	 */
 	@Execute(validator = false)
 	public String confirm() {
-		prmTransportationDto = Beans.createAndCopy(PrmTransportationDto.class, transportationForm).execute();
+		PrmTransportationDto prmTransportationDto = Beans.createAndCopy(PrmTransportationDto.class, transportationForm).execute();
 		dspTransportationDto = Beans.createAndCopy(DspTransportationDto.class, prmTransportationDto).execute();
 		session.setAttribute("session", prmTransportationDto);
 		return "confirm.jsp";
@@ -75,7 +71,7 @@ public class TransportationAction {
 	 */
 	@Execute(validator = false)
 	public String complete() {
-		prmTransportationDto = (PrmTransportationDto)session.getAttribute("session");
+		PrmTransportationDto prmTransportationDto = (PrmTransportationDto)session.getAttribute("session");
 		transportationService.setTransportaionData(prmTransportationDto);
 		return "complete.jsp";
 	}
