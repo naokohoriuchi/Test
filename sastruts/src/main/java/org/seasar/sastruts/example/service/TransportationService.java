@@ -31,8 +31,8 @@ public class TransportationService {
 	 *
 	 * @return
 	 */
-	public GetTransportationDto doGetTransportationData() {
-		return jdbcManager.selectBySqlFile(GetTransportationDto.class, GET_TRANSPORTATION_DATA).getSingleResult();
+	public List<GetTransportationDto> doGetTransportationData() {
+		return jdbcManager.selectBySqlFile(GetTransportationDto.class, GET_TRANSPORTATION_DATA).getResultList();
 	}
 
 	/**

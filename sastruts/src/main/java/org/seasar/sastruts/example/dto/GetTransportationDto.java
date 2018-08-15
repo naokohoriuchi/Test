@@ -1,7 +1,5 @@
 package org.seasar.sastruts.example.dto;
 
-import java.util.List;
-
 /**
  * 取得結果格納DTO
  *
@@ -19,24 +17,27 @@ public class GetTransportationDto {
 	public String name;
 
 	/** 日付（乗車日） */
-	public List<String> boardingDate;
+	public String boardingDate;
 
 	/** 行き先 */
-	public List<String> destination;
+	public String destination;
 
 	/** 乗車種別 */
-	public List<String> type;
+	public String type;
 
 	/** 出発地 */
-	public List<String> departure;
+	public String departure;
 
 	/** 目的地 */
-	public List<String> destinationStation;
+	public String destinationStation;
 
 	/** 金額 */
-	public List<String> money;
+	public String money;
 
 	/** 備考欄 */
-	public List<String> remarks;
+	public String remarks;
+
+	/** 合計金額 */
+	public String total;
 
 }

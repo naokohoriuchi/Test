@@ -19,7 +19,7 @@
 					<table id=date>
 						<tr>
 							<th>日付</th>
-							<td>${dspTransportationDto.writeDate}</td>
+							<td>${prmTransportationDtoList[0].writeDate}</td>
 						</tr>
 					</table>
 				</td>
@@ -30,11 +30,11 @@
 					<table>
 						<tr>
 							<th>部署</th>
-							<td class="Department">${dspTransportationDto.department}</td>
+							<td class="Department">${prmTransportationDtoList[0].department}</td>
 						</tr>
 						<tr>
 							<th>名前</th>
-							<td class="Department">${dspTransportationDto.name}</td>
+							<td class="Department">${prmTransportationDtoList[0].name}</td>
 						</tr>
 					</table>
 				</td>
@@ -52,40 +52,20 @@
 							<th width="12.5%">金額</th>
 							<th width="12.5%">備考</th>
 						</tr>
-						<c:forEach items="${dspTransportationDto.boardingDate}"
-							var="boardingDate">
-							<c:forEach items="${dspTransportationDto.destination}"
-								var="destination">
-								<c:forEach items="${dspTransportationDto.type}" var="type">
-									<c:forEach items="${dspTransportationDto.departure}"
-										var="departure">
-										<c:forEach items="${dspTransportationDto.arrow}"
-											var="arrow">
-											<c:forEach
-												items="${dspTransportationDto.destinationStation}"
-												var="destinationStation">
-												<c:forEach items="${dspTransportationDto.money}"
-													var="money">
-													<c:forEach items="${dspTransportationDto.remarks}"
-														var="remarks">
-														<tr>
-															<td class=mainTd>${f:h(boardingDate)}</td>
-															<td class=mainTd>${f:h(destination)}</td>
-															<td class=mainTd>${f:h(type)}</td>
-															<td class=mainTd>${f:h(departure)}</td>
-															<td class=mainTd>${f:h(arrow)}</td>
-															<td class=mainTd>${f:h(destinationStation)}</td>
-															<td class=mainTd>${f:h(money)}</td>
-															<td class=mainTd>${f:h(remarks)}</td>
-														</tr>
-													</c:forEach>
-												</c:forEach>
-											</c:forEach>
-										</c:forEach>
-									</c:forEach>
-								</c:forEach>
-							</c:forEach>
+						<c:forEach items="${prmTransportationDtoList}" var="i">
+
+							<tr>
+								<td class=mainTd>${f:h(i.boardingDate)}</td>
+								<td class=mainTd>${f:h(i.destination)}</td>
+								<td class=mainTd>${f:h(i.type)}</td>
+								<td class=mainTd>${f:h(i.departure)}</td>
+								<td class=mainTd>${f:h(i.arrow)}</td>
+								<td class=mainTd>${f:h(i.destinationStation)}</td>
+								<td class=mainTd>${f:h(i.money)}</td>
+								<td class=mainTd>${f:h(i.remarks)}</td>
+							</tr>
 						</c:forEach>
+
 
 					</table> <br /></td>
 			</tr>
@@ -105,8 +85,9 @@
 							<td class="moneyTd"></td>
 						</tr>
 					</table>
-					<p>合計：${dspTransportationDto.total}</p> <html:image
-						src="/sastruts/image/completeBtn.png" property="complete" value="確認" />
+					<p>合計：${prmTransportationDtoList[0].total}</p> <html:image
+						src="/sastruts/image/completeBtn.png" property="complete"
+						value="確認" />
 				</td>
 			</tr>
 		</table>
