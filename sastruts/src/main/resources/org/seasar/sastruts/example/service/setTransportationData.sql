@@ -13,16 +13,16 @@ INSERT INTO TRANSPORTATION (
 	TOTAL
 )
 VALUES (
-	/*writeDate*/,
-	/*department*/,
-	/*name*/,
-	/*boardingDate*/,
-	/*destination*/,
-	/*type*/,
-	/*departure*/,
-	/*arrow*/,
-	/*destinationStation*/,
-	/*money*/,
-	/*remarks*/,
-	/*total*/
+	/*writeDate*/'2018/06/30',
+	/*department*/'1課',
+	/*name*/'小川',
+	/*boardingDate*/'2018/06/15',
+	/*destination*/'どこか',
+	/*type*/'電車',
+	/*departure*/'どこか',
+	/*arrow*/'→',
+	/*destinationStation*/'どこか',
+	/*money*/'100',
+	/*remarks*/'面談',
+	/*total*/'100'
 );
