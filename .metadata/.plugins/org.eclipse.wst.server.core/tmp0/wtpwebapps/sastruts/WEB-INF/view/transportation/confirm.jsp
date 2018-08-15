@@ -52,22 +52,22 @@
 							<th width="12.5%">金額</th>
 							<th width="12.5%">備考</th>
 						</tr>
-						<c:forEach items="${dspTransportationDto.boardingDateList}"
+						<c:forEach items="${dspTransportationDto.boardingDate}"
 							var="boardingDate">
-							<c:forEach items="${dspTransportationDto.destinationList}"
+							<c:forEach items="${dspTransportationDto.destination}"
 								var="destination">
-								<c:forEach items="${dspTransportationDto.typeList}" var="type">
-									<c:forEach items="${dspTransportationDto.departureList}"
+								<c:forEach items="${dspTransportationDto.type}" var="type">
+									<c:forEach items="${dspTransportationDto.departure}"
 										var="departure">
-										<c:forEach items="${dspTransportationDto.arrowList}"
+										<c:forEach items="${dspTransportationDto.arrow}"
 											var="arrow">
 											<c:forEach
-												items="${dspTransportationDto.destinationStationList}"
+												items="${dspTransportationDto.destinationStation}"
 												var="destinationStation">
-												<c:forEach items="${dspTransportationDto.moneyList}"
+												<c:forEach items="${dspTransportationDto.money}"
 													var="money">
-													<c:forEach items="${dspTransportationDto.remarksList}"
-														var="remarksList">
+													<c:forEach items="${dspTransportationDto.remarks}"
+														var="remarks">
 														<tr>
 															<td class=mainTd>${f:h(boardingDate)}</td>
 															<td class=mainTd>${f:h(destination)}</td>
@@ -76,7 +76,7 @@
 															<td class=mainTd>${f:h(arrow)}</td>
 															<td class=mainTd>${f:h(destinationStation)}</td>
 															<td class=mainTd>${f:h(money)}</td>
-															<td class=mainTd>${f:h(remarksList)}</td>
+															<td class=mainTd>${f:h(remarks)}</td>
 														</tr>
 													</c:forEach>
 												</c:forEach>
@@ -86,26 +86,7 @@
 								</c:forEach>
 							</c:forEach>
 						</c:forEach>
-						<tr>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-						<tr>
-						<tr>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-						<tr>
+
 					</table> <br /></td>
 			</tr>
 			<tr>

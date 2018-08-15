@@ -56,33 +56,24 @@
 							<th width="12.5%">備考</th>
 						</tr>
 						<tr>
-							<td class=mainTd><input type="text" name="boardingDateList"></td>
-							<td class=mainTd><input type="text" name="destinationList"></td>
-							<td class=mainTd><select name="typeList">
+							<td class=mainTd><input type="text" name="boardingDate"></td>
+							<td class=mainTd><input type="text" name="destination"></td>
+							<td class=mainTd><select name="type">
 									<option value="A">A</option>
 									<option value="B">B</option>
 									<option value="C">C</option>
 							</select></td>
-							<td class=mainTd><input type="text" name="departureList"></td>
-							<td class=mainTd><select name="arrowList">
+							<td class=mainTd><input type="text" name="departure"></td>
+							<td class=mainTd><select name="arrow">
 									<option value="→">→</option>
 									<option value="←">←</option>
 									<option value="⇔">⇔</option>
 							</select></td>
-							<td class=mainTd><input type="text" name="destinationStationList"></td>
-							<td class=mainTd><input type="text" name="moneyList"></td>
-							<td class=mainTd><input type="text" name="remarksList"></td>
-						<tr>
-						<tr>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-						<tr>
+							<td class=mainTd><input type="text"
+								name="destinationStation"></td>
+							<td class=mainTd><input type="text" name="money"></td>
+							<td class=mainTd><input type="text" name="remarks"></td>
+						</tr>
 						<tr>
 							<td class=mainTd></td>
 							<td class=mainTd></td>
@@ -92,7 +83,17 @@
 							<td class=mainTd></td>
 							<td class=mainTd></td>
 							<td class=mainTd></td>
+						</tr>
 						<tr>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+							<td class=mainTd></td>
+						</tr>
 					</table> <br /></td>
 			</tr>
 			<tr>
@@ -111,9 +112,10 @@
 							<td class="moneyTd"><input type="text" name=""></td>
 						</tr>
 					</table>
-					<p>合計：<input type="text" name="total"></p>
-					<br />
-					<html:image src="/sastruts/image/confirmBtn.png" property="confirm" value="確認" />
+					<p>
+						合計：<input type="text" name="total">
+					</p> <br /> <html:image src="/sastruts/image/confirmBtn.png"
+						property="confirm" value="確認" />
 				</td>
 			</tr>
 		</table>

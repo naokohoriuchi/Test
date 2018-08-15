@@ -1,5 +1,7 @@
 package org.seasar.sastruts.example.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.seasar.extension.jdbc.JdbcManager;
@@ -36,8 +38,8 @@ public class TransportationService {
 	/**
 	 * 交通費の情報を登録する。
 	 */
-	public void setTransportaionData(PrmTransportationDto prmTransportationDto) {
-		jdbcManager.updateBySqlFile(SET_TRANSPORTATION_DATA, prmTransportationDto);
+	public void setTransportaionData(List<PrmTransportationDto> prmTransportationDtoList) {
+		jdbcManager.updateBySqlFile(SET_TRANSPORTATION_DATA, prmTransportationDtoList).execute();
 	}
 
 }

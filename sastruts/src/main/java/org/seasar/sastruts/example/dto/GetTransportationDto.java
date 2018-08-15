@@ -19,24 +19,24 @@ public class GetTransportationDto {
 	public String name;
 
 	/** 日付（乗車日） */
-	public List<String> boardingDateList;
+	public List<String> boardingDate;
 
 	/** 行き先 */
-	public List<String> destinationList;
+	public List<String> destination;
 
 	/** 乗車種別 */
-	public List<String> typeList;
+	public List<String> type;
 
 	/** 出発地 */
-	public List<String> departureList;
+	public List<String> departure;
 
 	/** 目的地 */
-	public List<String> destinationStationList;
+	public List<String> destinationStation;
 
 	/** 金額 */
-	public List<String> moneyList;
+	public List<String> money;
 
 	/** 備考欄 */
-	public List<String> remarksList;
+	public List<String> remarks;
 
 }

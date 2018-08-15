@@ -1,7 +1,6 @@
 package org.seasar.sastruts.example.dto;
 
 import java.io.Serializable;
-import java.util.List;
 
 import org.seasar.framework.container.annotation.tiger.Component;
 import org.seasar.framework.container.annotation.tiger.InstanceType;
@@ -26,28 +25,28 @@ public class PrmTransportationDto implements Serializable {
 	public String name;
 
 	/** 日付（乗車日） */
-	public List<String> boardingDateList;
+	public String boardingDate;
 
 	/** 行き先 */
-	public List<String> destinationList;
+	public String destination;
 
 	/** 乗車種別 */
-	public List<String> typeList;
+	public String type;
 
 	/** 出発地 */
-	public List<String> departureList;
+	public String departure;
 
 	/** 矢印 */
-	public List<String> arrowList;
+	public String arrow;
 
 	/** 目的地 */
-	public List<String> destinationStationList;
+	public String destinationStation;
 
 	/** 金額 */
-	public List<String> moneyList;
+	public String money;
 
 	/** 備考欄 */
-	public List<String> remarksList;
+	public String remarks;
 
 	/** 合計金額 */
 	public String total;

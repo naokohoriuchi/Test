@@ -1,5 +1,8 @@
 package org.seasar.sastruts.example.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -41,7 +44,9 @@ public class TransportationAction {
 	/*
 	 * 表示用DTO
 	 */
-	public DspTransportationDto dspTransportationDto;
+	public List<DspTransportationDto> dspTransportationDto = new ArrayList<DspTransportationDto>();
+
+	private List<PrmTransportationDto> prmTransportationDtoList = new ArrayList<PrmTransportationDto>();
 
 	/**
 	 * 初期表示
@@ -62,8 +67,28 @@ public class TransportationAction {
 	 */
 	@Execute(validator = false)
 	public String confirm() {
-		prmTransportationDto = Beans.createAndCopy(PrmTransportationDto.class, transportationForm).execute();
-		dspTransportationDto = Beans.createAndCopy(DspTransportationDto.class, prmTransportationDto).execute();
+		// prmTransportationDto =
+		// Beans.createAndCopy(PrmTransportationDto.class,
+		// transportationForm).execute();
+
+		// 詰め替え
+		for (int i = 0; i < transportationForm.boardingDate.size(); i++) {
+			prmTransportationDto.writeDate = transportationForm.writeDate;
+			prmTransportationDto.department = transportationForm.department;
+			prmTransportationDto.name = transportationForm.name;
+			prmTransportationDto.boardingDate = transportationForm.boardingDate.get(i);
+			prmTransportationDto.destination = transportationForm.destination.get(i);
+			prmTransportationDto.type = transportationForm.type.get(i);
+			prmTransportationDto.departure = transportationForm.departure.get(i);
+			prmTransportationDto.arrow = transportationForm.arrow.get(i);
+			prmTransportationDto.destinationStation = transportationForm.destinationStation.get(i);
+			prmTransportationDto.money = transportationForm.money.get(i);
+			prmTransportationDto.remarks = transportationForm.remarks.get(i);
+			prmTransportationDto.total = transportationForm.total;
+			prmTransportationDtoList.add(prmTransportationDto);
+
+		}
+		Beans.copy(prmTransportationDtoList, dspTransportationDto);
 		session.setAttribute("session", prmTransportationDto);
 		return "confirm.jsp";
 	}
@@ -75,8 +100,11 @@ public class TransportationAction {
 	 */
 	@Execute(validator = false)
 	public String complete() {
-		prmTransportationDto = (PrmTransportationDto)session.getAttribute("session");
-		transportationService.setTransportaionData(prmTransportationDto);
+		prmTransportationDto = (PrmTransportationDto) session.getAttribute("session");
+		// List<PrmTransportationDto> prmTransportationDtoList = new
+		// ArrayList<PrmTransportationDto>();
+		prmTransportationDtoList.add(prmTransportationDto);
+		transportationService.setTransportaionData(prmTransportationDtoList);
 		return "complete.jsp";
 	}
 
