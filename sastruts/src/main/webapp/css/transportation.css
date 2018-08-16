@@ -29,7 +29,7 @@ th {
 	empty-cells: show;
 }
 
-.mainTd, .moneyTd {
+.mainTd, .moneyTd, .moneyTd, .mainMoney, .type {
 	border: 1px solid;
 	border-collapse: collapse;
 	height:25px

@@ -34,9 +34,9 @@
 							<th>部署</th>
 							<td class="Department"><select name="department">
 									<option value=""></option>
-									<option value="システム開発部1課">システム開発部1課</option>
-									<option value="システム開発部2課">システム開発部2課</option>
-									<option value="企画開発部">企画開発部</option>
+									<c:forEach items="${departmentList}" var="i">
+										<option value="${i}">${i}</option>
+									</c:forEach>
 							</select></td>
 						</tr>
 						<tr>
@@ -64,7 +64,23 @@
 							<tr>
 								<td class=mainTd>${f:h(i.boardingDate)}</td>
 								<td class=mainTd>${f:h(i.destination)}</td>
-								<td class=mainTd>${f:h(i.type)}</td>
+								<td class=type><select name="type">
+										<c:if test="${f:h(i.type)=='A'}">
+											<option value="A" selected="selected">A</option>
+											<option value="B">B</option>
+											<option value="C">C</option>
+										</c:if>
+										<c:if test="${f:h(i.type)=='B'}">
+											<option value="A">A</option>
+											<option value="B" selected="selected">B</option>
+											<option value="C">C</option>
+										</c:if>
+										<c:if test="${f:h(i.type)=='C'}">
+											<option value="A">A</option>
+											<option value="B">B</option>
+											<option value="C" selected="selected">C</option>
+										</c:if>
+								</select></td>
 								<td class=mainTd>${f:h(i.departure)}</td>
 								<td class=mainTd>${f:h(i.arrow)}</td>
 								<td class=mainTd>${f:h(i.destinationStation)}</td>
@@ -75,7 +91,7 @@
 						<tr>
 							<td class=mainTd></td>
 							<td class=mainTd></td>
-							<td class=mainTd></td>
+							<td class=type></td>
 							<td class=mainTd></td>
 							<td class=mainTd></td>
 							<td class=mainTd></td>
@@ -85,7 +101,7 @@
 						<tr>
 							<td class=mainTd></td>
 							<td class=mainTd></td>
-							<td class=mainTd></td>
+							<td class=type></td>
 							<td class=mainTd></td>
 							<td class=mainTd></td>
 							<td class=mainTd></td>
@@ -111,7 +127,8 @@
 							<td class="moneyTd"><input type="text" name=""></td>
 						</tr>
 					</table>
-					<p>合計：</p><p id=total></p> <br /> <html:image
+					<p>合計：</p>
+					<p id=total></p> <br /> <html:image
 						src="/sastruts/image/confirmBtn.png" property="confirm" value="確認" />
 				</td>
 			</tr>
