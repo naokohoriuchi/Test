@@ -61,10 +61,18 @@ public class TransportationAction {
 	public String index() {
 		// 前回の登録情報を取得
 		getTransportationDto = transportationService.doGetTransportationData();
+		if (getTransportationDto.size() < 11) {
+			for (int i = 0; i < 10; i++) {
+				GetTransportationDto dto = new GetTransportationDto();
+				dto.type = "A";
+				dto.arrow = "→";
+				getTransportationDto.add(dto);
+			}
+		}
 
 		// 部署名一覧取得
 		List<String> getList = transportationService.getDepartment();
-		for (String list: getList) {
+		for (String list : getList) {
 			departmentList.add(list);
 		}
 		return "index.jsp";

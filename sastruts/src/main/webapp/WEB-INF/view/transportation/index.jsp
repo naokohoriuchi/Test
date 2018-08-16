@@ -21,7 +21,8 @@
 					<table id=date>
 						<tr>
 							<th>日付</th>
-							<td>${getTransportationDto[0].lastDate}</td>
+							<td id=lastDate><input type="text" name="writeDate"
+								value="${getTransportationDto[0].lastDate}" /></td>
 						</tr>
 					</table>
 				</td>
@@ -41,7 +42,8 @@
 						</tr>
 						<tr>
 							<th>名前</th>
-							<td class="Department">${getTransportationDto[0].name}</td>
+							<td class="Department"><input type="text" name="name"
+								value="${getTransportationDto[0].name}" /></td>
 						</tr>
 					</table>
 				</td>
@@ -62,8 +64,10 @@
 
 						<c:forEach items="${getTransportationDto}" var="i">
 							<tr>
-								<td class=mainTd>${f:h(i.boardingDate)}</td>
-								<td class=mainTd>${f:h(i.destination)}</td>
+								<td class=mainTd><input type="text" name="boardingDate"
+									value="${f:h(i.boardingDate)}" /></td>
+								<td class=mainTd><input type="text" name="destination"
+									value="${f:h(i.destination)}" /></td>
 								<td class=type><select name="type">
 										<c:if test="${f:h(i.type)=='A'}">
 											<option value="A" selected="selected">A</option>
@@ -81,33 +85,33 @@
 											<option value="C" selected="selected">C</option>
 										</c:if>
 								</select></td>
-								<td class=mainTd>${f:h(i.departure)}</td>
-								<td class=mainTd>${f:h(i.arrow)}</td>
-								<td class=mainTd>${f:h(i.destinationStation)}</td>
-								<td class=mainMoney>${f:h(i.money)}</td>
-								<td class=mainTd>${f:h(i.remarks)}</td>
+								<td class=mainTd><input type="text" name="departure"
+									value="${f:h(i.departure)}"></td>
+								<td class=mainTd><select name="arrow">
+										<c:if test="${f:h(i.arrow)=='→'}">
+											<option value="→" selected="selected">→</option>
+											<option value="←">←</option>
+											<option value="⇔">⇔</option>
+										</c:if>
+										<c:if test="${f:h(i.arrow)=='←'}">
+											<option value="→">→</option>
+											<option value="←" selected="selected">←</option>
+											<option value="⇔">⇔</option>
+										</c:if>
+										<c:if test="${f:h(i.arrow)=='⇔'}">
+											<option value="→">→</option>
+											<option value="←">←</option>
+											<option value="⇔" selected="selected">⇔</option>
+										</c:if>
+								</select></td>
+								<td class=mainTd><input type="text"
+									name="destinationStation" value="${f:h(i.destinationStation)}" /></td>
+								<td class=mainMoney><input type="text" name="money"
+									value="${f:h(i.money)}" /></td>
+								<td class=mainTd><input type="text" name="remarks"
+									value="${f:h(i.remarks)}" /></td>
 							</tr>
 						</c:forEach>
-						<tr>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=type></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainMoney></td>
-							<td class=mainTd></td>
-						</tr>
-						<tr>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=type></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainTd></td>
-							<td class=mainMoney></td>
-							<td class=mainTd></td>
-						</tr>
 					</table> <br /></td>
 			</tr>
 

@@ -5,8 +5,9 @@ $(document).ready(function() {
 	var i = 0;
 
 	$(".mainMoney").each(function() {
+		var money = $('input[name="money"]').val();
 		// 文字列→数値型に変換して計算
-		total = total + Number($(this).text());
+		total = total + Number(money);
 	});
 
 	$("#total").html(total + "円");
