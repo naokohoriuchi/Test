@@ -46,8 +46,11 @@ public class TransportationAction {
 	// パラメータ用リスト
 	public List<PrmTransportationDto> prmTransportationDtoList = new ArrayList<PrmTransportationDto>();
 
-	// 表示用リスト
+	// 交通費情報表示用リスト
 	public List<GetTransportationDto> getTransportationDto = new ArrayList<GetTransportationDto>();
+
+	// 部署一覧表示用リスト
+	public List<String> departmentList = new ArrayList<String>();
 
 	/**
 	 * 初期表示
@@ -56,7 +59,14 @@ public class TransportationAction {
 	 */
 	@Execute(validator = false)
 	public String index() {
+		// 前回の登録情報を取得
 		getTransportationDto = transportationService.doGetTransportationData();
+
+		// 部署名一覧取得
+		List<String> getList = transportationService.getDepartment();
+		for (String list: getList) {
+			departmentList.add(list);
+		}
 		return "index.jsp";
 	}
 
