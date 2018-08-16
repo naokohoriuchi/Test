@@ -7,8 +7,8 @@ package org.seasar.sastruts.example.dto;
  */
 public class GetTransportationDto {
 
-	/** 日付（申請日） */
-	public String writeDate;
+	/** 月末 */
+	public String lastDate;
 
 	/** 部署 */
 	public String department;
@@ -27,6 +27,9 @@ public class GetTransportationDto {
 
 	/** 出発地 */
 	public String departure;
+
+	/** 矢印 */
+	public String arrow;
 
 	/** 目的地 */
 	public String destinationStation;
