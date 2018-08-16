@@ -38,8 +38,8 @@ public class TransportationService {
 	/**
 	 * 交通費の情報を登録する。
 	 */
-	public void setTransportaionData(List<PrmTransportationDto> prmTransportationDtoList) {
-		jdbcManager.updateBySqlFile(SET_TRANSPORTATION_DATA, prmTransportationDtoList).execute();
+	public void setTransportaionData(PrmTransportationDto prmDto) {
+		jdbcManager.updateBySqlFile(SET_TRANSPORTATION_DATA, prmDto).execute();
 	}
 
 }
