@@ -44,7 +44,7 @@ public class TransportationAction {
 	 * リスト
 	 */
 	// パラメータ用リスト
-	public List<PrmTransportationDto> prmTransportationDtoList	= new ArrayList<PrmTransportationDto>();
+	public List<PrmTransportationDto> prmTransportationDtoList = new ArrayList<PrmTransportationDto>();
 
 	// 表示用リスト
 	public List<GetTransportationDto> getTransportationDto = new ArrayList<GetTransportationDto>();
@@ -67,7 +67,6 @@ public class TransportationAction {
 	 */
 	@Execute(validator = false)
 	public String confirm() {
-
 
 		// 詰め替え
 		for (int i = 0; i < transportationForm.boardingDate.size(); i++) {
@@ -98,11 +97,12 @@ public class TransportationAction {
 	@SuppressWarnings("unchecked")
 	@Execute(validator = false)
 	public String complete() {
-		List<PrmTransportationDto> prmTransportationDtoList = (List<PrmTransportationDto>) session.getAttribute("session");
-		// List<PrmTransportationDto> prmTransportationDtoList = new
-		// ArrayList<PrmTransportationDto>();
-		// prmTransportationDtoList.add(prmTransportationDto);
-		transportationService.setTransportaionData(prmTransportationDtoList);
+		List<PrmTransportationDto> prmTransportationDtoList = (List<PrmTransportationDto>) session
+				.getAttribute("session");
+		for (PrmTransportationDto prmDto : prmTransportationDtoList) {
+			transportationService.setTransportaionData(prmDto);
+		}
+
 		return "complete.jsp";
 	}
 
