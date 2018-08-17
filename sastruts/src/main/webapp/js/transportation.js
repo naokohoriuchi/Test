@@ -1,6 +1,14 @@
 $(document).ready(function() {
 
+	// カレンダーポップアップを表示させる
+	$("#datepicker").datepicker();
+	$("#datepicker").datepicker("option", "showOn", 'button');
+	$("#datepicker").datepicker("option", "buttonImageOnly", true);
+	$("#datepicker").datepicker("option", "buttonImage", '/sastruts/image/calendarIcon.png');
+
 	// 選択された部署名によって名前を変える
+	localStorage.foo = $(".name").val();
+
 	$('[name="department"]').change(function() {
 		var selectDepartment = $('[name=department]').val();
 
