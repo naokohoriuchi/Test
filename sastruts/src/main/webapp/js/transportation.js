@@ -7,7 +7,20 @@ $(document).ready(function() {
 	$("#datepicker").datepicker("option", "buttonImage", '/sastruts/image/calendarIcon.png');
 
 	// 選択された部署名によって名前を変える
-	localStorage.foo = $(".name").val();
+	var システム開発部1課 = {
+	    001: "梅野"
+	};
+
+	var システム開発部2課 = {
+	    001: "田中"
+	};
+
+	var 企画開発部 = {
+		001: "小川"
+	};
+
+	localStorage.setItem("system1", JSON.stringify(システム開発部1課));
+	localStorage.setItem("system2", JSON.stringify(システム開発部2課));
 
 	$('[name="department"]').change(function() {
 		var selectDepartment = $('[name=department]').val();
