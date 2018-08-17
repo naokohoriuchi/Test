@@ -42,9 +42,9 @@
 						</tr>
 						<tr>
 							<th>名前</th>
-							<td class="Department"><select name="name">
+							<td class="Department"><select name="name" id="employee">
 									<c:forEach items="${employeeList}" var="i">
-										<option value="${i.name}">${i.name}</option>
+										<option value="${i.department},${i.name}" class="name">${i.name}</option>
 									</c:forEach>
 							</select></td>
 						</tr>
