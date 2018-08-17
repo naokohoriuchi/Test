@@ -1,0 +1,4 @@
+$(document).ready(function() {
+	// 合計金額を計算して表示する
+	$("#total").html("1000");
+});

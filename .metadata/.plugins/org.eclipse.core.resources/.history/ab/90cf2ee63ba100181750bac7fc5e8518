@@ -1,0 +1,13 @@
+$(document).ready(function() {
+
+	// 合計金額を計算して表示する
+	var money = $(".mainMoney");
+	var total = 0;
+	var i = 0;
+
+	$(".mainMoney").each( function() {
+		total = total+this).text();
+	});
+
+	$("#total").html(total+"円");
+});

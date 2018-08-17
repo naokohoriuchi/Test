@@ -1,0 +1,8 @@
+DaoType=None
+DefaultResourcePath=/sastruts/src/main/resources
+DefaultRootPackage=org.seasar.sastruts
+DefaultSrcPath=/sastruts/src/main/java
+ServletPath=sastruts
+ViewType=None
+WebContentsRoot=src/main/webapp
+eclipse.preferences.version=1
