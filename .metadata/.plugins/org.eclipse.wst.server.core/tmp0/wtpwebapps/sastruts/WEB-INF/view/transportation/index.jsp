@@ -42,8 +42,11 @@
 						</tr>
 						<tr>
 							<th>名前</th>
-							<td class="Department"><input type="text" name="name"
-								value="${getTransportationDto[0].name}" /></td>
+							<td class="Department"><select name="name">
+									<c:forEach items="${employeeList}" var="i">
+										<option value="${i.name}">${i.name}</option>
+									</c:forEach>
+							</select></td>
 						</tr>
 					</table>
 				</td>

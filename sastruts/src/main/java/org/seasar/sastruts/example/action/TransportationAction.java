@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import org.seasar.sastruts.example.dto.GetEmployeeDto;
 import org.seasar.sastruts.example.dto.GetTransportationDto;
 import org.seasar.sastruts.example.dto.PrmTransportationDto;
 import org.seasar.sastruts.example.form.TransportationForm;
@@ -52,6 +53,9 @@ public class TransportationAction {
 	// 部署一覧表示用リスト
 	public List<String> departmentList = new ArrayList<String>();
 
+	// 社員一覧表示用リスト
+	public List<GetEmployeeDto> employeeList = new ArrayList<GetEmployeeDto>();
+
 	/**
 	 * 初期表示
 	 *
@@ -59,6 +63,7 @@ public class TransportationAction {
 	 */
 	@Execute(validator = false)
 	public String index() {
+
 		// 前回の登録情報を取得
 		getTransportationDto = transportationService.doGetTransportationData();
 		if (getTransportationDto.size() < 11) {
@@ -71,10 +76,11 @@ public class TransportationAction {
 		}
 
 		// 部署名一覧取得
-		List<String> getList = transportationService.getDepartment();
-		for (String list : getList) {
-			departmentList.add(list);
-		}
+		departmentList = transportationService.getDepartment();
+
+		// 社員名一覧取得
+		employeeList = transportationService.getEmployee();
+
 		return "index.jsp";
 	}
 

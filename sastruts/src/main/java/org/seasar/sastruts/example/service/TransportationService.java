@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.seasar.extension.jdbc.JdbcManager;
+import org.seasar.sastruts.example.dto.GetEmployeeDto;
 import org.seasar.sastruts.example.dto.GetTransportationDto;
 import org.seasar.sastruts.example.dto.PrmTransportationDto;
 
@@ -20,16 +21,19 @@ public class TransportationService {
 	 * 定数
 	 */
 	// SQLファイルのルートパス
-	private final String SQL_FILE_ROOT_PATH = "org/seasar/sastruts/example/service/";
+	private static final String SQL_FILE_ROOT_PATH = "org/seasar/sastruts/example/service/";
 
 	// 前回登録データ取得用SQLのパス
-	private final String GET_TRANSPORTATION_DATA = SQL_FILE_ROOT_PATH + "getTransportationData.sql";
+	private static final String GET_TRANSPORTATION_DATA = SQL_FILE_ROOT_PATH + "getTransportationData.sql";
 
 	// 交通費情報登録用SQLのパス
-	private final String SET_TRANSPORTATION_DATA = SQL_FILE_ROOT_PATH + "setTransportationData.sql";
+	private static final String SET_TRANSPORTATION_DATA = SQL_FILE_ROOT_PATH + "setTransportationData.sql";
 
-	// 部署名前取得用SQLのパス
-	private final String GET_DEPARTMENT_MASTER_DATA = SQL_FILE_ROOT_PATH + "getDepartmentData.sql";
+	// 部署名全取得用SQLのパス
+	private static final String GET_DEPARTMENT_MASTER_DATA = SQL_FILE_ROOT_PATH + "getDepartmentData.sql";
+
+	// 社員名全取得用SQLのパス
+	private static final String GET_EMPLOYEE_DATA = SQL_FILE_ROOT_PATH + "getEmployeeData.sql";
 
 	/*
 	 * DI
@@ -53,6 +57,15 @@ public class TransportationService {
 	 */
 	public List<String> getDepartment() {
 		return jdbcManager.selectBySqlFile(String.class, GET_DEPARTMENT_MASTER_DATA).getResultList();
+	}
+
+	/**
+	 * 社員名をテーブルから全取得する。
+	 *
+	 * @return
+	 */
+	public List<GetEmployeeDto>getEmployee() {
+		return jdbcManager.selectBySqlFile(GetEmployeeDto.class, GET_EMPLOYEE_DATA).getResultList();
 	}
 
 	/**
