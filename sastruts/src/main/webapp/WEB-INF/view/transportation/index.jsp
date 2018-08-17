@@ -6,7 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+<link rel="stylesheet"
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css">
 <link rel="stylesheet" type="text/css"
 	href="/sastruts/css/transportation.css" />
 <script type="text/javascript" src="/sastruts/js/transportation.js"></script>
@@ -22,7 +28,7 @@
 						<tr>
 							<th>日付</th>
 							<td id=lastDate><input type="text" name="writeDate"
-								value="${getTransportationDto[0].lastDate}" /></td>
+								value="${getTransportationDto[0].lastDate}" class="datepicker" /></td>
 						</tr>
 					</table>
 				</td>
@@ -68,7 +74,7 @@
 						<c:forEach items="${getTransportationDto}" var="i">
 							<tr>
 								<td class=mainTd><input type="text" name="boardingDate"
-									value="${f:h(i.boardingDate)}" /></td>
+									value="${f:h(i.boardingDate)}" class="datepicker"/></td>
 								<td class=mainTd><input type="text" name="destination"
 									value="${f:h(i.destination)}" /></td>
 								<td class=type><select name="type">
