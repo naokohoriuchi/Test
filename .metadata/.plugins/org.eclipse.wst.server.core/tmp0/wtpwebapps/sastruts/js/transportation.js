@@ -4,7 +4,6 @@ $(document).ready(function() {
 	$('[name="department"]').change(function() {
 		var selectDepartment = $('[name=department]').val();
 
-		var count = $(".name").length;
 		$(".name").each(function() {
 			if ($(this).val().match(selectDepartment)) {
 				var departmentname = $(this).val();
