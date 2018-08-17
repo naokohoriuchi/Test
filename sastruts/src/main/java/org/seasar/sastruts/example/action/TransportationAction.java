@@ -92,11 +92,18 @@ public class TransportationAction {
 	@Execute(validator = false)
 	public String confirm() {
 
+		String str = transportationForm.name;
+		String [] a = str.split(",");
+		String name = a[1];
+
 		// 詰め替え
 		for (int i = 0; i < transportationForm.boardingDate.size(); i++) {
+			if(transportationForm.boardingDate.get(i).isEmpty()) {
+				break;
+			}
 			prmTransportationDto.writeDate = transportationForm.writeDate;
 			prmTransportationDto.department = transportationForm.department;
-			prmTransportationDto.name = transportationForm.name;
+			prmTransportationDto.name = name;
 			prmTransportationDto.boardingDate = transportationForm.boardingDate.get(i);
 			prmTransportationDto.destination = transportationForm.destination.get(i);
 			prmTransportationDto.type = transportationForm.type.get(i);
