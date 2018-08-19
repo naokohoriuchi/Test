@@ -65,15 +65,7 @@ public class TransportationAction {
 	public String index() {
 
 		// 前回の登録情報を取得
-		getTransportationDto = transportationService.doGetTransportationData();
-		if (getTransportationDto.size() < 11) {
-			for (int i = 0; i < 10; i++) {
-				GetTransportationDto dto = new GetTransportationDto();
-				dto.type = "A";
-				dto.arrow = "→";
-				getTransportationDto.add(dto);
-			}
-		}
+		getTransportationData();
 
 		// 部署名一覧取得
 		departmentList = transportationService.getDepartment();
@@ -81,6 +73,7 @@ public class TransportationAction {
 		// 社員名一覧取得
 		employeeList = transportationService.getEmployee();
 
+		// 画面表示
 		return "index.jsp";
 	}
 
@@ -92,9 +85,62 @@ public class TransportationAction {
 	@Execute(validator = false)
 	public String confirm() {
 
-		// 詰め替え
+		// フォームのデータをパラメータに詰め替える。
+		refillFormParameter();
+
+		// セッションに保存
+		session.setAttribute("session", prmTransportationDtoList);
+
+		// 画面表示
+		return "confirm.jsp";
+	}
+
+	/**
+	 * 登録処理
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@Execute(validator = false)
+	public String complete() {
+
+		// セッション情報取得
+		List<PrmTransportationDto> prmTransportationDtoList = (List<PrmTransportationDto>) session
+				.getAttribute("session");
+		for (PrmTransportationDto prmDto : prmTransportationDtoList) {
+			// 交通費情報登録
+			transportationService.setTransportaionData(prmDto);
+		}
+
+		return "complete.jsp";
+	}
+
+	/*
+	 * 下請けメソッド
+	 */
+
+	/**
+	 * 前回の登録内容を取得する。
+	 */
+	private void getTransportationData() {
+		getTransportationDto = transportationService.doGetTransportationData();
+		if (getTransportationDto.size() < 11) {
+			for (int i = 0; i < 10; i++) {
+				// 取得件数が11件以下の場合は入力フォームを作成
+				GetTransportationDto dto = new GetTransportationDto();
+				dto.type = "A";
+				dto.arrow = "→";
+				getTransportationDto.add(dto);
+			}
+		}
+	}
+
+	/**
+	 * フォームのデータをパラメータに詰め替える。
+	 */
+	private void refillFormParameter() {
 		for (int i = 0; i < transportationForm.boardingDate.size(); i++) {
-			if(transportationForm.boardingDate.get(i).isEmpty()) {
+			if (transportationForm.boardingDate.get(i).isEmpty()) {
 				break;
 			}
 			prmTransportationDto.writeDate = transportationForm.writeDate;
@@ -112,25 +158,6 @@ public class TransportationAction {
 			prmTransportationDtoList.add(prmTransportationDto);
 
 		}
-		session.setAttribute("session", prmTransportationDtoList);
-		return "confirm.jsp";
-	}
-
-	/**
-	 * 登録処理
-	 *
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	@Execute(validator = false)
-	public String complete() {
-		List<PrmTransportationDto> prmTransportationDtoList = (List<PrmTransportationDto>) session
-				.getAttribute("session");
-		for (PrmTransportationDto prmDto : prmTransportationDtoList) {
-			transportationService.setTransportaionData(prmDto);
-		}
-
-		return "complete.jsp";
 	}
 
 }
