@@ -8,43 +8,35 @@ $(document).ready(function() {
 
 	// 選択された部署名によって名前を変える
 	var システム開発部1課 = {
-	    001: "梅野"
+	    value: "梅野"
 	};
 
 	var システム開発部2課 = {
-	    001: "田中"
+		value: "田中"
 	};
 
 	var 企画開発部 = {
-		001: "小川"
+		value: "小川"
 	};
 
 	localStorage.setItem("system1", JSON.stringify(システム開発部1課));
 	localStorage.setItem("system2", JSON.stringify(システム開発部2課));
+	localStorage.setItem("other", JSON.stringify(企画開発部));
 
 	$('[name="department"]').change(function() {
 		var selectDepartment = $('[name=department]').val();
+		$('.name').remove();
 
-		$(".name").each(function() {
-			if ($(this).val().match(selectDepartment)) {
-				var departmentname = $(this).val();
-				var name = departmentname.split(",");
-
-				$(".name").remove();
-				$("#employee").append("<option value="+departmentname+">"+name[1]+"</option>")
-			}
-		});
+		if (selectDepartment == "システム開発部1課") {
+			var json = JSON.parse(localStorage.getItem("system1"));
+			$("#employee").append("<option value="+selectDepartment+" class="+"name"+">"+json.value+"</option>");
+		}else if(selectDepartment == "システム開発部2課") {
+			var json = JSON.parse(localStorage.getItem("system2"));
+			$("#employee").append("<option value="+selectDepartment+" class="+"name"+">"+json.value+"</option>");
+		}else {
+			var json = JSON.parse(localStorage.getItem("other"));
+			$("#employee").append("<option value="+selectDepartment+" class="+"name"+">"+json.value+"</option>");
+		}
 	});
 
-	// 合計金額を計算して表示する
-	var total = 0;
-	var i = 0;
-
-	$(".mainMoney").each(function() {
-		var money = $('input[name="money"]').val();
-		// 文字列→数値型に変換して計算
-		total = total + Number(money);
-	});
-
-	$("#total").html(total + "円");
 });

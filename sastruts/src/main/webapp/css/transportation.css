@@ -31,5 +31,5 @@ th {
 .mainTd, .moneyTd, .moneyTd, .mainMoney, .type {
 	border: 1px solid;
 	border-collapse: collapse;
-	height:25px
+	height: 25px
 }

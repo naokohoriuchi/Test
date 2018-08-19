@@ -74,7 +74,7 @@
 						<c:forEach items="${getTransportationDto}" var="i">
 							<tr>
 								<td class=mainTd><input type="text" name="boardingDate"
-									value="${f:h(i.boardingDate)}" class="datepicker"/></td>
+									value="${f:h(i.boardingDate)}" class="datepicker" /></td>
 								<td class=mainTd><input type="text" name="destination"
 									value="${f:h(i.destination)}" /></td>
 								<td class=type><select name="type">
@@ -140,9 +140,10 @@
 							<td class="moneyTd"><input type="text" name=""></td>
 						</tr>
 					</table>
-					<p>合計：</p>
-					<p id=total></p> <br /> <html:image
-						src="/sastruts/image/confirmBtn.png" property="confirm" value="確認" />
+					<p id=total>
+						合計：<input type="text" name="total">
+					</p> <br /> <html:image src="/sastruts/image/confirmBtn.png"
+						property="confirm" value="確認" />
 				</td>
 			</tr>
 		</table>
