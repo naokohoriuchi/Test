@@ -29,13 +29,13 @@ $(document).ready(function() {
 
 		if (selectDepartment == "システム開発部1課") {
 			var json = JSON.parse(localStorage.getItem("system1"));
-			$("#employee").append("<option value="+selectDepartment+" class="+"name"+">"+json.value+"</option>");
+			$("#employee").append("<option value="+selectDepartment+","+json.value+" class="+"name"+">"+json.value+"</option>");
 		}else if(selectDepartment == "システム開発部2課") {
 			var json = JSON.parse(localStorage.getItem("system2"));
-			$("#employee").append("<option value="+selectDepartment+" class="+"name"+">"+json.value+"</option>");
+			$("#employee").append("<option value="+selectDepartment+","+json.value+" class="+"name"+">"+json.value+"</option>");
 		}else {
 			var json = JSON.parse(localStorage.getItem("other"));
-			$("#employee").append("<option value="+selectDepartment+" class="+"name"+">"+json.value+"</option>");
+			$("#employee").append("<option value="+selectDepartment+","+json.value+" class="+"name"+">"+json.value+"</option>");
 		}
 	});
 

@@ -10,6 +10,9 @@ INSERT INTO TRANSPORTATION (
 	DESTINATION_STATION,
 	MONEY,
 	REMARKS,
+	TRAIN,
+	TAXI,
+	BUS,
 	TOTAL
 )
 VALUES (
@@ -24,5 +27,8 @@ VALUES (
 	/*destinationStation*/'どこか',
 	/*money*/'100',
 	/*remarks*/'面談',
+	/*train*/'100',
+	/*taxi*/'0',
+	/*bus*/'0',
 	/*total*/'100'
 );

@@ -129,19 +129,19 @@
 					<table>
 						<tr>
 							<th width="100px">電車</th>
-							<td class="moneyTd"><input type="text" name=""></td>
+							<td class="moneyTd"><input type="text" name="train" value="${getTransportationDto[0].train}"></td>
 						</tr>
 						<tr>
 							<th>タクシー</th>
-							<td class="moneyTd"><input type="text" name=""></td>
+							<td class="moneyTd"><input type="text" name="taxi" value="${getTransportationDto[0].taxi}"></td>
 						</tr>
 						<tr>
 							<th>バス</th>
-							<td class="moneyTd"><input type="text" name=""></td>
+							<td class="moneyTd"><input type="text" name="bus" value="${getTransportationDto[0].bus}"></td>
 						</tr>
 					</table>
 					<p id=total>
-						合計：<input type="text" name="total">
+						合計：<input type="text" name="total" value="${getTransportationDto[0].total}">
 					</p> <br /> <html:image src="/sastruts/image/confirmBtn.png"
 						property="confirm" value="確認" />
 				</td>

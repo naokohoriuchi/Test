@@ -139,13 +139,16 @@ public class TransportationAction {
 	 * フォームのデータをパラメータに詰め替える。
 	 */
 	private void refillFormParameter() {
+		String str = transportationForm.name;
+		String [] departmentName = str.split(",");
+		String name = departmentName[1];
 		for (int i = 0; i < transportationForm.boardingDate.size(); i++) {
 			if (transportationForm.boardingDate.get(i).isEmpty()) {
 				break;
 			}
 			prmTransportationDto.writeDate = transportationForm.writeDate;
 			prmTransportationDto.department = transportationForm.department;
-			prmTransportationDto.name = transportationForm.name;
+			prmTransportationDto.name = name;
 			prmTransportationDto.boardingDate = transportationForm.boardingDate.get(i);
 			prmTransportationDto.destination = transportationForm.destination.get(i);
 			prmTransportationDto.type = transportationForm.type.get(i);
@@ -154,6 +157,9 @@ public class TransportationAction {
 			prmTransportationDto.destinationStation = transportationForm.destinationStation.get(i);
 			prmTransportationDto.money = transportationForm.money.get(i);
 			prmTransportationDto.remarks = transportationForm.remarks.get(i);
+			prmTransportationDto.train = transportationForm.train;
+			prmTransportationDto.taxi = transportationForm.taxi;
+			prmTransportationDto.bus = transportationForm.bus;
 			prmTransportationDto.total = transportationForm.total;
 			prmTransportationDtoList.add(prmTransportationDto);
 

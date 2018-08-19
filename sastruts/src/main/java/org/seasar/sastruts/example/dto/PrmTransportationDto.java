@@ -44,6 +44,15 @@ public class PrmTransportationDto implements Serializable {
 	/** 備考欄 */
 	public String remarks;
 
+	/** 電車 */
+	public String train;
+
+	/** タクシー */
+	public String taxi;
+
+	/** バス */
+	public String bus;
+
 	/** 合計金額 */
 	public String total;
 
